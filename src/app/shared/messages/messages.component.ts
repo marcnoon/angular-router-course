@@ -33,6 +33,6 @@ export class MessagesComponent implements OnInit {
   onClose() {
       this.showMessages = false;
 
-  }
+    }
 
 }
