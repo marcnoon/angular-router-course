@@ -10,6 +10,7 @@ import {
     RouteConfigLoadStart,
     Router
 } from '@angular/router';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'loading',
@@ -24,6 +25,9 @@ export class LoadingComponent implements OnInit {
   @Input()
   detectRoutingOngoing = false;
 
+  @Input()
+  delay = 250;  // Add a delay input property
+
   constructor(
       public loadingService: LoadingService,
       private router: Router) {
@@ -34,6 +38,9 @@ export class LoadingComponent implements OnInit {
 
       if (this.detectRoutingOngoing) {
           this.router.events
+              .pipe(
+                  delay(this.delay)
+              )
               .subscribe(
                   event => {
                       if (event instanceof NavigationStart

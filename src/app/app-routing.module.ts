@@ -7,7 +7,6 @@ import {CanLoadAuthGuard} from './services/can-load-auth.guard';
 import {CustomPreloadingStrategy} from './services/custom-preloading.strategy';
 import {ChatComponent} from './chat/chat.component';
 
-
 const routes: Routes = [
     {
       path: "",
